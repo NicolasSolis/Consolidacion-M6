@@ -7,13 +7,13 @@ class VehiculoModel(models.Model):
         ('Ford', 'Ford'),
         ('Toyota', 'Toyota'),
     ]
-    
+
     CATEGORIA_CHOICES = [
         ('Particular', 'Particular'),
         ('Transporte', 'Transporte'),
         ('Carga', 'Carga'),
     ]
-    
+
     marca = models.CharField(max_length=20, choices=MARCA_CHOICES, default='Ford')
     modelo = models.CharField(max_length=100)
     serial_carroceria = models.CharField(max_length=50)
@@ -22,3 +22,6 @@ class VehiculoModel(models.Model):
     precio = models.IntegerField()
     fecha_de_creacion = models.DateTimeField(auto_now=False, auto_now_add=True)
     fecha_de_modificacion = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return self.title
