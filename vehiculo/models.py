@@ -23,5 +23,19 @@ class VehiculoModel(models.Model):
     fecha_de_creacion = models.DateTimeField(auto_now=False, auto_now_add=True)
     fecha_de_modificacion = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    @property
+    def condicion_precio(self):
+        if self.precio < 10000:
+            return "Bajo"
+        elif 10000 <= self.precio <= 30000:
+            return "Medio"
+        else:
+            return "Alto"
+
+    class Meta: #no sabía si era mala traducción de la pauta, pero añadí un view_vehiculomodel redundante
+        permissions = [
+            ("can_visualizar_catalogo", "Puede ver catálogo")
+        ]
+
     def __str__(self):
-        return self.title
+        return self.modelo

@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+    {% load crispy_forms_tags %}
     <div class="d-flex justify-content-center">
         <h2>Añadir Vehículos</h2>
     </div>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="container"> {% comment %} perdón estaba perdiendo tiempo, me centré en hacer todo funcional antes que bonito {% endcomment %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
 {% endblock content %}
