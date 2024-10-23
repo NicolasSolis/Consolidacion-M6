@@ -33,6 +33,9 @@ class VehiculoModel(models.Model):
             return "Alto"
 
     class Meta: #no sabía si era mala traducción de la pauta, pero añadí un view_vehiculomodel redundante
+        verbose_name = "vehículo"
+        verbose_name_plural= 'vehículos'
+        ordering = ['-fecha_de_modificacion']
         permissions = [
             ("can_visualizar_catalogo", "Puede ver catálogo")
         ]
